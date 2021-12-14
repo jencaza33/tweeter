@@ -1,29 +1,40 @@
-main form {
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
-}
-
-#tweet-text {
-  border : none;
-  border-bottom: 3px solid #545149;
-  background: none;
-  resize:none;
-}
-
-#tweet-text:focus {
-  outline: none;
-}
-
-.form-footer{
-  margin-top:1em;
+.new-tweet {
   display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: stretch;
+  width: 90%;
+  margin:1em;
+}
+
+button {
+  background-color: blue;
+  font-family: 'Bungee', cursive;
+  color: white;
+}
+
+section div {
+  display: flex;
+  font-family: 'Bungee', cursive;
   justify-content: space-between;
 }
 
-main form button {
-  background-color: #4056a1;
-  font-family:'Bungee', sans-serif, cursive;
-  color:white;
-  border:none;
+form {
+  width: 100%;
+}
+
+textarea {
+  display: flex;
+  color: rgb(102, 101, 101);
+  font-weight: bold;
+  width: 100%;
+  background-color: transparent;
+  column-count: 1;
+  border: 0px;
+  border-bottom: 3px solid rgb(56, 55, 55);
+  line-height: 0.75em;
+  resize: none;
+  text-shadow: 8px 9px 4px #9e9e9e75;
+  margin-bottom: 1em;
+  outline: none;
 } 
