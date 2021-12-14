@@ -1,15 +1,25 @@
 nav {
+  height : 120px;
+  width : 100vw;
   background-color: #4056A1;
-  color: #FFFFFF;
-  height: 120px;
-  top: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  z-index: 500;
-  padding: 1.5em;
+  color: #ffffff;
+  padding: 0 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#logo {
-  font-family: 'Bungee', sans-serif;
+nav span {
+  font-family:'Bungee', sans-serif, cursive;
+}
+
+nav div i {
+  color : red;
+}
+
+nav div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
