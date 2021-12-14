@@ -5,19 +5,26 @@
   justify-content: stretch;
   width: 90%;
   margin:1em;
+  text-shadow: 8px 9px 4px #a1a1a175;
 }
 
 button {
   background-color: blue;
   font-family: 'Bungee', cursive;
   color: white;
+  box-shadow: 8px 9px 4px #a1a1a175;
   padding: 4px
+}
+
+section {
+  text-shadow: 8px 9px 4px #a1a1a175;
 }
 
 section div {
   display: flex;
   font-family: 'Bungee', cursive;
   justify-content: space-between;
+  align-items: center;
 }
 
 form {
@@ -35,7 +42,7 @@ textarea {
   border-bottom: 3px solid rgb(56, 55, 55);
   line-height: 0.75em;
   resize: none;
-  text-shadow: 8px 9px 4px #9e9e9e75;
+  text-shadow: inherit;
   margin-bottom: 1em;
   outline: none;
 } 
