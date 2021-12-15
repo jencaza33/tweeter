@@ -4,30 +4,29 @@ main form {
   font-weight: 600;
   margin: 1.2em 0;
 }
+
 #tweet-text {
-  border : none;
+  border: none;
   border-bottom: 3px solid #545149;
   background: none;
-  resize:none;
+  resize: none;
 }
-.shadow {
-  text-shadow: 8px 9px 4px #a1a1a175;
-}
+
 #tweet-text:focus {
   outline: none;
 }
-.form-footer{
-  margin-top:1em;
-  display:flex;
+
+.form-footer {
+  margin-top: 1em;
+  display: flex;
   justify-content: space-between;
 }
+
 main form button {
   background-color: #4056a1;
-  font-family:'Bungee', sans-serif, cursive;
-  color:white;
-  border:none;
-  box-shadow: 8px 9px 4px #a1a1a175;
-  padding: 0.1em;
+  font-family: "Bungee", sans-serif, cursive;
+  color: white;
+  border: none;
 }
 
 .over-limit {

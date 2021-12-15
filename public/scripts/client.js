@@ -33,7 +33,7 @@ const data = [
 
 const createTweetElement = function(tweetData) {
   const {user,content,created_at} = tweetData;
-  const $htmlForTweet = $(`<article class="tweeter-box">
+  const $htmlForTweet = $(`<article class="tweets">
   <header>
     <div class="profile">
       <img src='${user.avatars}' width="25%">
@@ -64,7 +64,7 @@ const createTweetElement = function(tweetData) {
 const renderTweets = function(arr) {
   arr.forEach(el => {
     const $tweet =  createTweetElement(el);
-    $('#tweet-container').append($tweet);
+    $('#tweets').append($tweet);
   });
 };
 
