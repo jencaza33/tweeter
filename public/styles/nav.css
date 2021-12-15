@@ -13,6 +13,8 @@ nav {
 }
 nav span {
   font-family:'Bungee', sans-serif, cursive;
+  font-weight: 700;
+  margin: 1.0em;
 }
 nav div i {
   color : red;

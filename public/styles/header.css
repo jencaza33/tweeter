@@ -11,8 +11,8 @@ nav + header {
   position: relative;
 } 
 
-.name {
-  color: #FFFFFF;
+h2 {
+  color: #ffffff;
   font-size: 150%;;
   text-shadow: 8px 9px 4px #a1a1a175;
 }
