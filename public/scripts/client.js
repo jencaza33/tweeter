@@ -4,13 +4,14 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$("document").ready(function() {
+$("document").ready(() => {
   const $error = $('#error-display');
   $error.hide();
+  
   //========createTweetElement============//
-  const createTweetElement = function(tweetData) {
+  const createTweetElement = (tweetData) => {
     const {user,content,created_at} = tweetData;
-    const escape = function (str) {
+    const escape = (str) => {      //Prevents XSS with escape function
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
@@ -41,7 +42,6 @@ $("document").ready(function() {
   };
 
   //========== renderTweets ============//
-
   const renderTweets = (arr) => {
     arr.forEach(el => {
       const $tweet =  createTweetElement(el);
@@ -57,6 +57,7 @@ $("document").ready(function() {
   };
 
   loadTweets();
+  
   //========== AJAX submit ==========//
   $tweetForm = $(".new-tweet form");
   $tweetForm.submit(function(e) {
@@ -79,7 +80,7 @@ $("document").ready(function() {
             $counter.text('140');
             loadTweets();
           })
-          .fail(err => {
+          .fail((err) => {
             $error.html('<p> <i class="fas fa-exclamation-triangle"></i> Something is not right! from server <i class="fas fa-exclamation-triangle"></i> </p>');
             $error.slideDown();
           });
