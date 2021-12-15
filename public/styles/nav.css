@@ -11,15 +11,12 @@ nav {
   top:0;
   z-index: 100;
 }
-
 nav span {
   font-family:'Bungee', sans-serif, cursive;
 }
-
 nav div i {
   color : red;
 }
-
 nav div {
   display: flex;
   flex-direction: column;

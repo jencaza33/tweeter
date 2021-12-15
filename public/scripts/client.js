@@ -54,7 +54,7 @@ const createTweetElement = function(tweetData) {
       <i class="far fa-heart"></i>
     </div>
   </footer>
-</article>`)
+</article>`);
   return $htmlForTweet;
 };
 
