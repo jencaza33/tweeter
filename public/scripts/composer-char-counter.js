@@ -1,14 +1,15 @@
-$(document).ready(function() {
-  // Update counter value with length of string in the input box, change text color to red if over 140 chars
-  $('#tweet-text').on('input', function() {
-    const textChars = $(this).val();
-    const charCount = textChars.length;
-    $(this).next().children('.counter').text(140 - charCount);
-    if (charCount > 140) {
-      $(this).css('color','red');
-    } else {
-      $(this).css('color','inherit');
-    }
+$("document").ready(function() {
+  const $textTweet = $("#tweet-text");
+  $textTweet.on('keyup', function(e) {
+    const $tweet = $(this).val();
+    const wordCount = 140;
+    const charCount = 140;
+    const $counter = $($(this).parent('form')).find('.counter');
+    const remainingWords = wordCount- $tweet.length;
+    $counter.toggleClass('over-limit',$tweet.length > wordCount);
+    $counter.text(remainingWords);
+    const remainingChar = charCount- $tweet.length;
+    $counter.toggleClass('over-limit',$tweet.length > charCount);
+    $counter.text(remainingChar);
   });
-
 });
