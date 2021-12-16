@@ -4,19 +4,27 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$("document").ready(() => {
-  const $error = $('#error-display');
-  $error.hide();
+$("document").ready(function() {
+  const $error = $("#error-display");
+  const $writeTweetBtn = $(".write-tweet");
+  const $tweetForm = $(".new-tweet form");
+  const $counter = $(".counter");
+  const $textArea = $($tweetForm).children("textarea");
   
-  //========createTweetElement============//
-  const createTweetElement = (tweetData) => {
-    const {user,content,created_at} = tweetData;
-    const escape = (str) => {      //Prevents XSS with escape function
+  //======= TOGGLING FORM(STRETCH WORK)========//
+  $writeTweetBtn.on("click", function() {
+    $tweetForm.toggle("fast");
+  });
+
+  //========CREATE TWEET ELEMENT============//
+  const createTweetElement = function(tweetData) {
+    const { user, content, created_at } = tweetData;
+    const escape = function(str) {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
     };
-    const $htmlForTweet = $(`<article class="tweets">
+    const $htmlForTweet = $(`<article class="tweeter-box">
     <header>
       <div class="profile">
         <img src='${user.avatars}' width="25%">
@@ -41,56 +49,65 @@ $("document").ready(() => {
     return $htmlForTweet;
   };
 
-  //========== renderTweets ============//
+  //========== RENDER TWEETS ============//
   const renderTweets = (arr) => {
-    arr.forEach(el => {
-      const $tweet =  createTweetElement(el);
-      $('#tweets').prepend($tweet);
+    arr.forEach((element) => {
+      const $tweet = createTweetElement(element);
+      $("#tweets").prepend($tweet);
     });
   };
 
-  //===== load tweet =====//
+  //===== LOAD TWEETS =====//
   const loadTweets = () => {
-    $.ajax('/tweets', {method : 'GET'})
-      .then(data => renderTweets(data))
-      .catch(err => console.log('get err:', err));
+    $.ajax("/tweets", { method: "GET" })
+      .then((data) => renderTweets(data))
+      .catch((err) => console.log("get err:", err));
   };
 
-  loadTweets();
+  //======= ERROR HANDLE =====//
+  const errorHandle = function(errorMsg) {
+    $error.html(
+      `<p> <i class="fas fa-exclamation-triangle"></i> ${errorMsg} <i class="fas fa-exclamation-triangle"></i> </p>`
+    );
+    $error.slideDown();
+  };
   
-  //========== AJAX submit ==========//
-  $tweetForm = $(".new-tweet form");
+  //====== INITIALIZE TWEETER =====//
+  const init = function() {
+    loadTweets();
+    $error.hide();
+    $tweetForm.hide();
+  };
+  
+  //======== RESET ==========//
+  const reset = () => {
+    $error.hide();
+    $textArea.val("");
+    $("#tweets").empty();
+    $counter.text("140");
+    loadTweets();
+  };
+  
+  
+  //========== AJAX submittion ==========//
   $tweetForm.submit(function(e) {
     e.preventDefault();
-    const $textArea = $(this).children('textarea');
-    const $counter = $('.counter');
     const $tweet = $textArea.val();
-
-    if ($tweet) {
-      if ($tweet.length > 140) {
-        $error.html('<p> <i class="fas fa-exclamation-triangle"></i> Too many characters! Make sure your tweet is not more than 140 words <i class="fas fa-exclamation-triangle"></i> </p>');
-        $error.slideDown();
-      } else {
-        const $serializedData = $(this).serialize();
-        $.post('/tweets', $serializedData)
-          .done(() => {
-            $error.hide();
-            $textArea.val('');
-            $('#tweets').empty();
-            $counter.text('140');
-            loadTweets();
-          })
-          .fail((err) => {
-            $error.html('<p> <i class="fas fa-exclamation-triangle"></i> Something is not right! from server <i class="fas fa-exclamation-triangle"></i> </p>');
-            $error.slideDown();
-          });
-      }
-    } else {
-      $error.html('<p> <i class="fas fa-exclamation-triangle"></i> Your tweet should not be empty! <i class="fas fa-exclamation-triangle"></i> </p>');
-      $error.slideDown();
+    if (!$tweet) {
+      return errorHandle('Your tweet should not be empty!');
     }
-
+    if ($tweet.length > 140) {
+      return errorHandle('Too many characters! Make sure your tweet is not more than 140 words');
+    }
+    const $serializedData = $(this).serialize();
+    $.post("/tweets", $serializedData)
+      .done(() => {
+        reset();
+      })
+      .fail(() => {
+        errorHandle('Something is not right! from server');
+      });
   });
 
-
+  init();
 });
