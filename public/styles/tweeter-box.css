@@ -1,4 +1,4 @@
-.tweets {
+.tweeter-box {
   border: 3px solid #545149;
   height: 300px;
   margin: 1.2em 0;
@@ -8,11 +8,12 @@
   justify-content: space-between;
 }
 
-.tweets {
+.tweeter-box:hover {
   box-shadow: 10px 10px 2px 1px rgba(49, 53, 56, 0.2);;
 }
-.tweets header,
-.tweets footer {
+
+.tweeter-box header,
+.tweeter-box footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,13 +26,13 @@
 .profile p {
   margin-left: 1em;
 }
-.tweets footer {
+.tweeter-box footer {
   border-top: 3px solid #545149;
   padding: 1.2em 0.8em;
   font-size: medium;
 }
 
-.tweets footer .icons {
+.tweeter-box footer .icons {
   width: 100px;
   display: flex;
   justify-content: space-around;
@@ -40,5 +41,5 @@
 .fa-flag:hover,
 .fa-retweet:hover,
 .fa-heart:hover {
-  color: salmon;
+  color: rgb(219, 103, 36);
 }

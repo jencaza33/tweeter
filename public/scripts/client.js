@@ -4,20 +4,20 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$("document").ready(function() {
+$("document").ready(() => {
   const $error = $("#error-display");
   const $writeTweetBtn = $(".write-tweet");
   const $tweetForm = $(".new-tweet form");
   const $counter = $(".counter");
   const $textArea = $($tweetForm).children("textarea");
   
-  //======= TOGGLING FORM(STRETCH WORK)========//
+  //======= TOGGLING FORM (STRETCH)========//
   $writeTweetBtn.on("click", function() {
     $tweetForm.toggle("fast");
   });
 
   //========CREATE TWEET ELEMENT============//
-  const createTweetElement = function(tweetData) {
+  const createTweetElement = (tweetData) => {
     const { user, content, created_at } = tweetData;
     const escape = function(str) {
       let div = document.createElement("div");
@@ -53,7 +53,7 @@ $("document").ready(function() {
   const renderTweets = (arr) => {
     arr.forEach((element) => {
       const $tweet = createTweetElement(element);
-      $("#tweets").prepend($tweet);
+      $("#tweet-container").prepend($tweet);
     });
   };
 
@@ -65,39 +65,38 @@ $("document").ready(function() {
   };
 
   //======= ERROR HANDLE =====//
-  const errorHandle = function(errorMsg) {
+  const errorHandle = (errorMsg) => {
     $error.html(
       `<p> <i class="fas fa-exclamation-triangle"></i> ${errorMsg} <i class="fas fa-exclamation-triangle"></i> </p>`
     );
     $error.slideDown();
   };
   
-  //====== INITIALIZE TWEETER =====//
-  const init = function() {
+  //====== INITIALIZE PAGE =====//
+  const init = () => {
     loadTweets();
     $error.hide();
     $tweetForm.hide();
   };
   
-  //======== RESET ==========//
+  //======== RESET FUNCTION ==========//
   const reset = () => {
     $error.hide();
     $textArea.val("");
-    $("#tweets").empty();
+    $("#tweet-container").empty();
     $counter.text("140");
     loadTweets();
   };
   
-  
-  //========== AJAX submittion ==========//
-  $tweetForm.submit(function(e) {
+  //========== AJAX SUBMITTION ==========//
+  $tweetForm.submit((e) => {
     e.preventDefault();
     const $tweet = $textArea.val();
     if (!$tweet) {
-      return errorHandle('Your tweet should not be empty!');
+      return errorHandle("Your tweet should not be empty!");
     }
     if ($tweet.length > 140) {
-      return errorHandle('Too many characters! Make sure your tweet is not more than 140 words');
+      return errorHandle("Too many characters! Your tweet must be 140 characters or less");
     }
     const $serializedData = $(this).serialize();
     $.post("/tweets", $serializedData)
@@ -105,7 +104,7 @@ $("document").ready(function() {
         reset();
       })
       .fail(() => {
-        errorHandle('Something is not right! from server');
+        errorHandle("Something is not right! From server");
       });
   });
 
