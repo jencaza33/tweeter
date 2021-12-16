@@ -1,4 +1,4 @@
-$("document").ready(function () {
+$("document").ready(() => {
   const $textTweet = $("#tweet-text");
   $textTweet.on("keyup", (e) => {
     const $tweet = $(this).val();
