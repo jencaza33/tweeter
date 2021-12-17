@@ -2,7 +2,7 @@ main form {
   display: flex;
   flex-direction: column;
   font-weight: 600;
-  margin: 1.2em 0;
+  margin: 2.0em 0;
 }
 
 #tweet-text {
@@ -29,7 +29,12 @@ main form button {
   border: none;
   padding: 0.5em
 }
-
+.counter {
+  font-family: "Bungee", sans-serif, cursive; 
+  color: #545149;
+  border-top: 10px;
+  float: right;
+}
 .over-limit {
   color: red;
 }

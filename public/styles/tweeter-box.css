@@ -6,8 +6,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 10px
 }
-
+.message {
+  padding: 30px;
+  align-items: left;
+}
 .tweeter-box:hover {
   box-shadow: 10px 10px 2px 1px rgba(49, 53, 56, 0.2);;
 }
@@ -28,7 +32,7 @@
 }
 .tweeter-box footer {
   border-top: 3px solid #545149;
-  padding: 1.2em 0.8em;
+  padding: px;
   font-size: medium;
 }
 
@@ -41,5 +45,5 @@
 .fa-flag:hover,
 .fa-retweet:hover,
 .fa-heart:hover {
-  color: rgb(219, 103, 36);
+  color: salmon;
 }

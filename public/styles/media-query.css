@@ -13,10 +13,11 @@
   }
   body > .container {
     margin-top: 200px;
-    margin-right: 1.5em;
-    flex-basis: 55%;
+    margin-right: 1.0em;
+    flex-basis: 50%;
   }
   .tweeter-box:first-child {
     margin-top: 0px;
   }
 }
+
