@@ -4,25 +4,17 @@ Tweeter is a simple, single-page Twitter clone that allows users to post a tweet
 
 ## Final Product
 
-*Main page, sized for desktop*
+*Main page*
 
-!["Screenshot main page in desktop size"](https://github.com/caitlining/tweeter/blob/master/docs/screenshot-main-page-desktop.png?raw=true)
+!["Screenshot main page"](https://github.com/jencaza/tweeter/blob/master/docs/screenshot-main-page-desktop.png?raw=true)
 
-*Main page, sized for tablet*
+*Creating a new tweet*
 
-!["Screenshot of main page in tablet size"](https://github.com/caitlining/tweeter/blob/master/docs/screenshot-main-page-tablet.png?raw=true)
+!["New tweet being created"](https://github.com/jencaza/tweeter/blob/master/docs/screenshot-main-page-tablet.png?raw=true)
 
 *Main page, sized for tablet, with the new tweet form visible*
 
-!["Screenshot of main page with toggled new tweet form"](https://github.com/caitlining/tweeter/blob/master/docs/screenshot-main-page-new-tweet-form-tablet.png?raw=true)
-
-*Main page, sized for desktop, with the new tweet form visible, and with an error message present*
-
-!["Screenshot of main page with invalid tweet length error message"](https://github.com/caitlining/tweeter/blob/master/docs/screenshot-main-page-new-tweet-form-error.png?raw=true)
-
-*Single tweet, when mouse hovers over*
-
-!["Screenshot of single tweet on hover"](https://github.com/caitlining/tweeter/blob/master/docs/screenshot-single-tweet-hover.png?raw=true)
+!["Error message and Responsive Design"](https://github.com/jencaza33/tweeter/blob/master/docs/screenshot-main-page-new-tweet-form-tablet.png?raw=true)
 
 
 *For a more in depth look at Tweeter, and to post your own Tweets, I encourage you to give it a try!*
