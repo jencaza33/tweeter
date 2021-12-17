@@ -6,15 +6,15 @@ Tweeter is a simple, single-page Twitter clone that allows users to post a tweet
 
 *Main page*
 
-!["Screenshot main page"](https://github.com/jencaza/tweeter/blob/master/docs/screenshot-main-page-desktop.png?raw=true)
+!["Screenshot main page"](https://github.com/jencaza33/tweeter/blob/master/docs/Main%20Page.png?raw=true)
 
 *Creating a new tweet*
 
-!["New tweet being created"](https://github.com/jencaza/tweeter/blob/master/docs/screenshot-main-page-tablet.png?raw=true)
+!["New tweet being created"](https://github.com/jencaza33/tweeter/blob/master/docs/New-tweet.gif?raw=true)
 
-*Main page, sized for tablet, with the new tweet form visible*
+*Error message and Responsive Design*
 
-!["Error message and Responsive Design"](https://github.com/jencaza33/tweeter/blob/master/docs/screenshot-main-page-new-tweet-form-tablet.png?raw=true)
+!["Error message and Responsive Design"](https://github.com/jencaza33/tweeter/blob/master/docs/Responsive-design.gif?raw=true)
 
 
 *For a more in depth look at Tweeter, and to post your own Tweets, I encourage you to give it a try!*
