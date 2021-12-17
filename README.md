@@ -1,18 +1,46 @@
-# Tweeter Project
+# **Tweeter Project**
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a simple, single-page Twitter clone that allows users to post a tweet. New tweets are added to the page in real time.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
+## Final Product
+
+*Main page, sized for desktop*
+
+!["Screenshot main page in desktop size"](https://github.com/caitlining/tweeter/blob/master/docs/screenshot-main-page-desktop.png?raw=true)
+
+*Main page, sized for tablet*
+
+!["Screenshot of main page in tablet size"](https://github.com/caitlining/tweeter/blob/master/docs/screenshot-main-page-tablet.png?raw=true)
+
+*Main page, sized for tablet, with the new tweet form visible*
+
+!["Screenshot of main page with toggled new tweet form"](https://github.com/caitlining/tweeter/blob/master/docs/screenshot-main-page-new-tweet-form-tablet.png?raw=true)
+
+*Main page, sized for desktop, with the new tweet form visible, and with an error message present*
+
+!["Screenshot of main page with invalid tweet length error message"](https://github.com/caitlining/tweeter/blob/master/docs/screenshot-main-page-new-tweet-form-error.png?raw=true)
+
+*Single tweet, when mouse hovers over*
+
+!["Screenshot of single tweet on hover"](https://github.com/caitlining/tweeter/blob/master/docs/screenshot-single-tweet-hover.png?raw=true)
+
+
+*For a more in depth look at Tweeter, and to post your own Tweets, I encourage you to give it a try!*
 
 ## Getting Started
 
 1. [Create](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) a new repository using this repository as a template.
 2. Clone your repository onto your local device.
 3. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
+3. Start the web server using the `npm start` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
 
 ## Dependencies
 
 - Express
 - Node 5.10.x or above
+- Font Awesome
+- Body Parser
+- Chance
+- TimeAgo 
+- MD5

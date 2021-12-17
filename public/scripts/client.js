@@ -11,15 +11,15 @@ $("document").ready(function() {
   const $counter = $(".counter");
   const $textArea = $($tweetForm).children("textarea");
   
-  //======= TOGGLE FORM ========//
-  $writeTweetBtn.on("click", () => {
+  //======= TOGGLING FORM ========//
+  $writeTweetBtn.on("click", function() {
     $tweetForm.toggle("fast");
   });
 
-  //======== CREATE TWEET ELEMENT ============//
-  const createTweetElement = (tweetData) => {
+  //========CREATE TWEET ELEMENT============//
+  const createTweetElement = function(tweetData) {
     const { user, content, created_at } = tweetData;
-    const escape = (str) => {
+    const escape = function (str) {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
@@ -50,7 +50,7 @@ $("document").ready(function() {
   };
 
   //========== RENDER TWEETS ============//
-  const renderTweets = (arr) => {
+  const renderTweets = function(arr) {
     arr.forEach((el) => {
       const $tweet = createTweetElement(el);
       $("#tweet-container").prepend($tweet);
@@ -58,45 +58,45 @@ $("document").ready(function() {
   };
 
   //===== LOAD TWEET =====//
-  const loadTweets = () => {
+  const loadTweets = function () {
     $.ajax("/tweets", { method: "GET" })
       .then((data) => renderTweets(data))
       .catch((err) => console.log("get err:", err));
   };
 
   //======= ERROR HANDLE =====//
-  const errorHandle = (errorMsg) => {
+  const errorHandle = function(errorMsg) {
     $error.html(
       `<p> <i class="fas fa-exclamation-triangle"></i> ${errorMsg} <i class="fas fa-exclamation-triangle"></i> </p>`
     );
     $error.slideDown();
   };
-  
-  //====== INITIALIZE FUNCTION =====//
-  const init = () => {
+
+  //====== INITIALIZE =====//
+  const init = function() {
     loadTweets();
     $error.hide();
     $tweetForm.hide();
   };
-  
-  //======== RESET FUNCTION ==========//
-  const reset = () => {
+
+  //======== RESET ==========//
+  const reset = function() {
     $error.hide();
     $textArea.val("");
     $("#tweet-container").empty();
     $counter.text("140");
     loadTweets();
   };
-  
+
   //========== AJAX SUBMITTION ==========//
-  $tweetForm.submit((e) => {
+  $tweetForm.submit(function(e) {
     e.preventDefault();
     const $tweet = $textArea.val();
     if (!$tweet) {
       return errorHandle('Your tweet should not be empty!');
     }
     if ($tweet.length > 140) {
-      return errorHandle('Too many characters! Your tweet should be 140 characters or less!');
+      return errorHandle('Too many characters! Tweets can be up to 140 characters.');
     }
     const $serializedData = $(this).serialize();
     $.post("/tweets", $serializedData)
@@ -104,7 +104,7 @@ $("document").ready(function() {
         reset();
       })
       .fail(() => {
-        errorHandle('Something is not right! from server')
+        errorHandle('Something is not right! from server');
       });
   });
 
